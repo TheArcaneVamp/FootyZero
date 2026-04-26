@@ -26,14 +26,13 @@ FootyZero provides a high-fidelity 2D football pitch (74x114 units) where two te
     ```
 3.  Install dependencies:
     ```bash
-    pip install gymnasium stable-baselines3 torch numpy matplotlib
+    pip install -r requirements.txt
     ```
 
 ### Running the Simulation
 
 *   **Train Agents:** `python3 train_ppo.py --timesteps 100000 --epochs 5`
-*   **Record a Match:** `python3 record_match.py` (Generates `broadcast.html`)
-*   **Live View:** Set `export_live=True` in `FootyGymEnv` to update `live_state.json` during execution.
+*   **Run/Watch Match:** `python3 run_match.py --debug` (Console) or `python3 run_match.py` (Visual)
 
 ## Controls & Logic
 
@@ -50,3 +49,10 @@ FootyZero provides a high-fidelity 2D football pitch (74x114 units) where two te
 ## Development Status
 
 Current focus is on stabilizing agent behavior and eliminating simulation "stagnation" through refined possession mechanics and dampened repulsion forces.
+
+## Future Work (Interactive Visualization)
+
+Planned enhancements for the Pygame-based renderer include:
+*   **Interactive Controls:** Play/Pause, Fast-Forward, and Slow-Motion toggles.
+*   **Scene Manipulation:** Ability to drag players or the ball to test specific tactical scenarios.
+*   **Enhanced UI:** More detailed match statistics, player energy levels, and tactical heatmap overlays.

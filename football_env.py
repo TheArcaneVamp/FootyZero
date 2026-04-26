@@ -95,10 +95,13 @@ class FootballEnv:
 
         # 5. Loose Ball Retrieval
         if self.ball.possessor is None:
-            # Deterministic ordering for retrieval
+            # Use time-based deterministic ordering to remove team bias while remaining Gymnasium-compliant
             all_players = [(p, 1 if p in self.team1 else 2) for p in self.team1 + self.team2]
+            # Deterministic rotation based on time
+            shift = self.time % len(all_players)
+            rotated_players = all_players[shift:] + all_players[:shift]
             
-            for player, team_id in all_players:
+            for player, team_id in rotated_players:
                 if self.ball.in_range(player):
                     self.ball.possessor = player
                     self.ball.last_touch_team = team_id

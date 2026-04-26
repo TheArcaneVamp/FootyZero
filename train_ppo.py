@@ -5,7 +5,7 @@ import numpy as np
 
 def train_self_play(args):
     # Initialize the environment
-    env = FootyGymEnv(export_live=args.export_live)
+    env = FootyGymEnv()
     
     # Initialize two agents (Load if exists, otherwise create new)
     try:
@@ -56,7 +56,6 @@ if __name__ == "__main__":
     parser.add_argument("--save_path_t1", type=str, default="ppo_footy_team1", help="Path to save/load Team 1 model.")
     parser.add_argument("--save_path_t2", type=str, default="ppo_footy_team2", help="Path to save/load Team 2 model.")
     parser.add_argument("--save_freq", type=int, default=10, help="Frequency of saving models (in rounds).")
-    parser.add_argument("--export_live", action="store_true", help="Whether to export live state for visualization.")
     
     args = parser.parse_args()
     train_self_play(args)

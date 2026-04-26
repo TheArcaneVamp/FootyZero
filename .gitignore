@@ -2,3 +2,6 @@ venv/
 __pycache__/
 *.zip
 live_state.json
+ppo_footy_team1
+ppo_footy_team2
+GEMINI.md
